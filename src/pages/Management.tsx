@@ -6,7 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { apiService, QueueData, Patient } from '@/services/apiService';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, Users } from 'lucide-react';
+import { ArrowLeft, Users, Building2, Stethoscope, Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Management = () => {
@@ -66,12 +66,32 @@ export const Management = () => {
             <h2 className="text-3xl font-bold text-foreground mb-2">จัดการคิวผู้ป่วย</h2>
             <p className="text-muted-foreground">ระบบจัดการคิวสำหรับพยาบาล</p>
           </div>
-          <Link to="/">
-            <Button variant="outline" className="gap-2">
-              <ArrowLeft className="w-4 h-4" />
-              กลับแดชบอร์ด
-            </Button>
-          </Link>
+          <div className="flex items-center space-x-3">
+            <Link to="/users">
+              <Button variant="outline" className="gap-2">
+                <Users className="w-4 h-4" />
+                จัดการผู้ใช้
+              </Button>
+            </Link>
+            <Link to="/rooms">
+              <Button variant="outline" className="gap-2">
+                <Building2 className="w-4 h-4" />
+                จัดการห้องตรวจ
+              </Button>
+            </Link>
+            <Link to="/doctors">
+              <Button variant="outline" className="gap-2">
+                <Stethoscope className="w-4 h-4" />
+                จัดการแพทย์
+              </Button>
+            </Link>
+            <Link to="/">
+              <Button variant="outline" className="gap-2">
+                <Home className="w-4 h-4" />
+                หน้าแรก
+              </Button>
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
