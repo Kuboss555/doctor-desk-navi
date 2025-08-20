@@ -5,7 +5,7 @@ import { StatsOverview } from '@/components/Dashboard/StatsOverview';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { apiService, QueueData } from '@/services/apiService';
 import { Button } from '@/components/ui/button';
-import { Settings } from 'lucide-react';
+import { Settings, Users, Building2, Stethoscope, UserCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Dashboard = () => {
@@ -67,12 +67,32 @@ export const Dashboard = () => {
             <h2 className="text-3xl font-bold text-foreground mb-2">{t('departmentOverview')}</h2>
             <p className="text-muted-foreground">ระบบแสดงผลคิวห้องตรวจแพทย์แบบเรียลไทม์</p>
           </div>
-          <Link to="/management">
-            <Button variant="outline" className="gap-2">
-              <Settings className="w-4 h-4" />
-              {t('management')}
-            </Button>
-          </Link>
+          <div className="flex items-center space-x-3">
+            <Link to="/users">
+              <Button variant="outline" className="gap-2">
+                <Users className="w-4 h-4" />
+                จัดการผู้ใช้
+              </Button>
+            </Link>
+            <Link to="/rooms">
+              <Button variant="outline" className="gap-2">
+                <Building2 className="w-4 h-4" />
+                จัดการห้องตรวจ
+              </Button>
+            </Link>
+            <Link to="/doctors">
+              <Button variant="outline" className="gap-2">
+                <Stethoscope className="w-4 h-4" />
+                จัดการแพทย์
+              </Button>
+            </Link>
+            <Link to="/management">
+              <Button variant="outline" className="gap-2">
+                <Settings className="w-4 h-4" />
+                {t('management')}
+              </Button>
+            </Link>
+          </div>
         </div>
 
         <StatsOverview 
@@ -97,12 +117,6 @@ export const Dashboard = () => {
               />
             );
           })}
-        </div>
-
-        <div className="mt-8 text-center">
-          <p className="text-sm text-muted-foreground">
-            {t('autoRefresh')} • อัปเดตทุก 2 นาที
-          </p>
         </div>
       </main>
     </div>

@@ -70,35 +70,13 @@ export const QueueCard: React.FC<QueueCardProps> = ({ room, doctor, currentPatie
 
           {/* Current Queue */}
           <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-muted-foreground">{t('currentQueue')}</span>
-              <div className="flex items-center space-x-2">
-                <Clock className="w-4 h-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">
-                  {currentPatient?.arrivalTime || '--:--'}
-                </span>
-              </div>
-            </div>
-            
             <div className="flex items-center justify-center">
               <div className="text-center">
                 <div className="text-4xl font-bold text-primary mb-1">
                   {room.currentQueue || '--'}
                 </div>
-                <div className="text-sm text-muted-foreground">{t('queue')}</div>
               </div>
             </div>
-
-            {/* Patient Information */}
-            {currentPatient && (
-              <div className="flex items-center space-x-3 p-3 bg-accent/10 rounded-lg border border-accent/20">
-                <User className="w-5 h-5 text-accent" />
-                <div className="flex-1">
-                  <p className="font-medium text-foreground">{currentPatient.name}</p>
-                  <p className="text-sm text-muted-foreground">{currentPatient.hn}</p>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </CardContent>
